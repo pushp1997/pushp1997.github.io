@@ -1,0 +1,10 @@
+.w3-bar-block .w3-bar-item{
+	padding:16px;font-weight:bold
+}
+#mySidebar{
+	z-index:3;
+	width:250px;
+}
+#mySidebar>a>img{
+	width:80%;
+}
