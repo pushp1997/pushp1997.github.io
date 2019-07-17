@@ -19,3 +19,50 @@ function w3_close() {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("myOverlay").style.display = "none";
 }
+
+//Swiching Tabs
+function showHome(){
+    $('.tab').removeClass('w3-deep-purple');
+    $('.tab').eq(0).addClass('w3-deep-purple');
+    w3.show('#home');
+    w3.hide('#experience');
+    w3.hide('#certification');
+    w3.hide('#projects');
+    w3.hide('#contact');
+}
+function showExperience(){
+    $('.tab').removeClass('w3-deep-purple');
+    $('.tab').eq(1).addClass('w3-deep-purple');
+    w3.hide('#home');
+    w3.show('#experience');
+    w3.hide('#certification');
+    w3.hide('#projects');
+    w3.hide('#contact');
+}
+function showCertification(){
+    $('.tab').removeClass('w3-deep-purple');
+    $('.tab').eq(2).addClass('w3-deep-purple');
+    w3.hide('#home');
+    w3.hide('#experience');
+    w3.show('#certification');
+    w3.hide('#projects');
+    w3.hide('#contact');
+}
+function showProjects(){
+    $('.tab').removeClass('w3-deep-purple');
+    $('.tab').eq(3).addClass('w3-deep-purple');
+    w3.hide('#home');
+    w3.hide('#experience');
+    w3.hide('#certification');
+    w3.show('#projects');
+    w3.hide('#contact');
+}
+function showContact(){
+    $('.tab').removeClass('w3-deep-purple');
+    $('.tab').eq(4).addClass('w3-deep-purple');
+    w3.hide('#home');
+    w3.hide('#experience');
+    w3.hide('#certification');
+    w3.hide('#projects');
+    w3.show('#contact');
+}

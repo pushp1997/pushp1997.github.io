@@ -14,11 +14,11 @@
 	<nav class="w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card" id="mySidebar">
 	  <a class="w3-bar-item w3-button w3-border-bottom w3-large" href="#"><img src="img/myPic.jpg"></a>
 	  <a class="w3-bar-item w3-button w3-hide-large w3-large" href="javascript:void(0)" onclick="w3_close()">Close <i class="fa fa-remove"></i></a>
-	  <a class="w3-bar-item w3-button w3-deep-purple" href="#">Home</a>
-	  <a class="w3-bar-item w3-button" href="#">Experience</a>
-	  <a class="w3-bar-item w3-button" href="#">Licenses & Certifications</a>
-	  <a class="w3-bar-item w3-button" href="#">Projects</a>
-	  <a class="w3-bar-item w3-button" href="#">Contact & Social Media</a>
+	  <a class="w3-bar-item w3-button tab w3-deep-purple" href="#" onclick="showHome()">Home</a>
+	  <a class="w3-bar-item w3-button tab" href="#" onclick="showExperience()">Experience</a>
+	  <a class="w3-bar-item w3-button tab" href="#" onclick="showCertification()">Licenses & Certifications</a>
+	  <a class="w3-bar-item w3-button tab" href="#" onclick="showProjects()">Projects</a>
+	  <a class="w3-bar-item w3-button tab" href="#" onclick="showContact()">Contact & Social Media</a>
 	</nav>
 
 	<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
@@ -26,7 +26,7 @@
 	<div class="w3-main" style="margin-left:250px;">
 		<div id="myTop" class="w3-container w3-top w3-theme w3-large">
   		<p><i class="fa fa-bars w3-button w3-deep-purple w3-hide-large w3-xlarge" onclick="w3_open()"></i>
-  		<span id="myIntro" class="w3-hide">Pushp Vashisht: Home</span></p>
+  		<span id="myIntro" class="w3-hide">Pushp Vashisht</span></p>
 	</div>
 
 	<header class="w3-container w3-theme" style="padding:64px 32px">
@@ -35,7 +35,7 @@
 
 	<!-- Home page -->
 
-	<div class="w3-container" data-view="home" style="padding:32px">
+	<div id="home" class="w3-container" style="padding:32px">
 
 		<h2>Hi!</h2>
 
@@ -50,7 +50,7 @@
 
 	<!-- Experience Page -->
 
-	<div class="w3-container none" data-view="experience" style="padding:32px">
+	<div id="experience" class="w3-container none" style="padding:32px">
 		<h2>Systems Engineer Trainee</h2>
 		<div class="w3-container w3-sand w3-leftbar">
 			<p><i>Infosys<br>Jan 2019 – May 2019<br>Mysuru, India<br></i>
@@ -69,7 +69,7 @@
 
 	<!-- Licenses & Certifications Page -->
 
-	<div class="w3-container none" data-view="experience" style="padding:32px">
+	<div id="certification" class="w3-container none" style="padding:32px">
 		<h2>Supervised Learning with Scikit-Learn</h2>
 		<div class="w3-container w3-sand w3-leftbar">
 			<p><i>DataCamp<br>Issued July 2019<br>No Expiration Date</i><br><br>
@@ -101,7 +101,7 @@
 
 	<!-- Projects page -->
 
-	<div class="w3-container none" data-view="projects" style="padding:32px">
+	<div id="projects" class="w3-container none" style="padding:32px">
 		<h2>Amazon Product Reviews Scraping</h2>
 		<div class="w3-container w3-sand w3-leftbar">
 			<p>The tool takes a link (any Amazon product page) as an input,
@@ -140,7 +140,7 @@
 
 	<!-- Contact & Social Meida -->
 
-	<div class="w3-container none" data-view="contact" style="padding:32px">
+	<div id="contact" class="w3-container none" style="padding:32px">
 		<a class="w3-button w3-theme" href="mailto:pushptyagi1@gmail.com">Email me.</a>
 		<a class="w3-button w3-theme" href="https://www.linkedin.com/in/pushp-vashisht/">LinkedIn</a>
 		<a class="w3-button w3-theme" href="https://github.com/pushp1997">GitHub</a>
