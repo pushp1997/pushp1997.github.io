@@ -15,10 +15,10 @@
 	  <a class="w3-bar-item w3-button w3-border-bottom w3-large" href="#"><img src="img/myPic.jpg"></a>
 	  <a class="w3-bar-item w3-button w3-hide-large w3-large" href="javascript:void(0)" onclick="w3_close()">Close <i class="fa fa-remove"></i></a>
 	  <a class="w3-bar-item w3-button w3-deep-purple" href="#">Home</a>
+	  <a class="w3-bar-item w3-button" href="#">Experience</a>
+	  <a class="w3-bar-item w3-button" href="#">Licenses & Certifications</a>
 	  <a class="w3-bar-item w3-button" href="#">Projects</a>
-	  <a class="w3-bar-item w3-button" href="#">Resumé & Certifications</a>
 	  <a class="w3-bar-item w3-button" href="#">Contact Me</a>
-	  <a class="w3-bar-item w3-button" href="#">Social Media</a>
 	</nav>
 
 	<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
@@ -44,30 +44,105 @@
 		sing as well as experiment with my phone (installing custom ROMs, rooting and stuff).</p>
 		<div class="w3-container w3-sand w3-leftbar">
 		<p><i>If you can't explain it to a six year old, you don't understand it yourself.</i><br>Albert Einstein</p>
+		</div><br>
+		<a class="w3-button w3-theme" href="assets/Resume.pdf" download="Pushp Vashisht Resume">Download Resume.</a>
+	</div>
+
+	<!-- Experience Page -->
+
+	<div class="w3-container none" data-view="experience" style="padding:32px">
+		<h2>Systems Engineer Trainee</h2>
+		<div class="w3-container w3-sand w3-leftbar">
+			<p><i>Infosys<br>Jan 2019 – May 2019<br>Mysuru, India<br></i>
+				Successfully completed final semester project and internship programme at Infosys,
+				 at Mysore, in .Net Core Framework using C# and a Final Semester Project.</p>
+		</div><br>
+
+		<h2>Systems Developer Intern</h2>
+		<div class="w3-container w3-sand w3-leftbar">
+			<p>Creative Squad Pvt. Ltd.<br>May 2018 – July 2018<br>Ghaziabad, India<br>
+				Developed Interactive Learning Games for play school kids, using Front-End Web 
+				Technologies, as an intern at Creative Squad Internet Services Pvt. Ltd. 
+				(contact@creativesquad.org )</p>
+		</div><br>
+	</div>
+
+	<!-- Licenses & Certifications Page -->
+
+	<div class="w3-container none" data-view="experience" style="padding:32px">
+		<h2>Supervised Learning with Scikit-Learn</h2>
+		<div class="w3-container w3-sand w3-leftbar">
+			<p><i>DataCamp<br>Issued July 2019<br>No Expiration Date</i><br><br>
+				<a class="w3-button w3-theme" href="https://www.datacamp.com/statement-of-accomplishment/course/2b38a1e921fc14519851d70381d438c03af95ef1">View Credentials.</a>
+			</p>
+		</div><br>
+
+		<h2>Unsupervised Learning in Python</h2>
+		<div class="w3-container w3-sand w3-leftbar">
+			<p><i>DataCamp<br>Issued July 2019<br>No Expiration Date<br></i><br>
+				<a class="w3-button w3-theme" href="https://www.datacamp.com/statement-of-accomplishment/course/d07852ea15ed194f851529349c0b2bc4443c9535">View Credentials.</a>
+			</p>
+		</div><br>
+
+		<h2>Machine Learning Basic Nanodegree</h2>
+		<div class="w3-container w3-sand w3-leftbar">
+			<p><i>Udacity<br>Issued October 2018<br>No Expiration Date<br></i><br>
+				<a class="w3-button w3-theme" href="https://confirm.udacity.com/ERHJLDEP">View Credentials.</a>
+			</p>
+		</div><br>
+
+		<h2>Machine Learning Foundation Nanodegree</h2>
+		<div class="w3-container w3-sand w3-leftbar">
+			<p><i>Udacity<br>Issued Feb 2018<br>No Expiration Date<br></i><br>
+				<a class="w3-button w3-theme" href="https://confirm.udacity.com/64GRLTFX">View Credentials.</a>
+			</p>
+		</div><br>
 	</div>
 
 	<!-- Projects page -->
 
 	<div class="w3-container none" data-view="projects" style="padding:32px">
-		<div class="project">
-			<h2>Investigate a Dataset</h2>
+		<h2>Amazon Product Reviews Scraping</h2>
+		<div class="w3-container w3-sand w3-leftbar">
+			<p>The tool takes a link (any Amazon product page) as an input,
+				and scrapes all the customer reviews to that product off the Amazon website
+				and collects the data in a Pandas Dataframe. The data is then saved in the
+				project folder in a CSV file format. This data can later be used for Sentiment
+				Analysis of Customers related to that product.<br><br>
+				Language and Frameworks Used:<br>
+				Python, Requests Library, BeautifulSoup Library, Pandas Library, Jupyter Notebook<br><br>
+				<a class="w3-button w3-theme" href="https://github.com/pushp1997/Amazon-Product-Reviews-Scraping">View Project on GitHub.</a>
+			</p>
+		</div><br>
 
-			<p>Posed a question about a dataset, then used NumPy and Pandas to answer that question based on the data and created a report to share the results.</p>
-		</div>
-	</div>
+		<h2>Finding Donors for CharityML</h2>
+		<div class="w3-container w3-sand w3-leftbar">
+			<p>Final Submission to Udacity's Machine Learning Basic Nanodegree Program as
+				mini project.<br><br>Description:<br>
+				Investigated factors that affect the likelihood of charity donations being made
+				based on real census data. Developed a naive classifier to compare testing
+				results to. Trained and tested several supervised machine learning models
+				on preprocessed census data to predict the likelihood of donations. Selected
+				the best model based on accuracy, a modified F-scoring metric, and algorithm
+				efficiency.<br><br>
+				<a class="w3-button w3-theme" href="https://github.com/pushp1997/finding_donors_for_CharityML">View Project on GitHub.</a>
+			</p>
+		</div><br>
 
-	<!-- Resume page -->
-
-	<div class="w3-container none" data-view="resume" style="padding:32px">
+		<h2>Investigate a dataset</h2>
+		<div class="w3-container w3-sand w3-leftbar">
+			<p>Posed a question about a dataset, then used NumPy and Pandas to answer
+				that question based on the data and created a report to share the results.<br><br>
+				<a class="w3-button w3-theme" href="https://github.com/pushp1997/Investigate-a-dataset-No-Show-Appointment-">View Project on GitHub.</a>
+			</p>
+		</div><br>
 	</div>
 
 	<!-- Contact Me -->
 
-	<div class="w3-container none" data-view="contact" style="padding:32px"></div>
-
-	<!-- Social Media -->
-
-	<div class="w3-container none" data-view="social" style="padding:32px"></div>
+	<div class="w3-container " data-view="contact" style="padding:32px">
+		
+	</div>
   
   	<!-- Importing javascript files -->
 
