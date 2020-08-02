@@ -28,6 +28,7 @@ function showHome(){
     w3.hide('#experience');
     w3.hide('#certification');
     w3.hide('#projects');
+    w3.hide('#blog');
     w3.hide('#contact');
 }
 function showExperience(){
@@ -37,6 +38,7 @@ function showExperience(){
     w3.show('#experience');
     w3.hide('#certification');
     w3.hide('#projects');
+    w3.hide('#blog');
     w3.hide('#contact');
 }
 function showCertification(){
@@ -46,6 +48,7 @@ function showCertification(){
     w3.hide('#experience');
     w3.show('#certification');
     w3.hide('#projects');
+    w3.hide('#blog');
     w3.hide('#contact');
 }
 function showProjects(){
@@ -55,14 +58,26 @@ function showProjects(){
     w3.hide('#experience');
     w3.hide('#certification');
     w3.show('#projects');
+    w3.hide('#blog');
     w3.hide('#contact');
 }
-function showContact(){
+function showBlog(){
     $('.tab').removeClass('w3-deep-purple');
     $('.tab').eq(4).addClass('w3-deep-purple');
     w3.hide('#home');
     w3.hide('#experience');
     w3.hide('#certification');
     w3.hide('#projects');
+    w3.show('#blog');
+    w3.hide('#contact');
+}
+function showContact(){
+    $('.tab').removeClass('w3-deep-purple');
+    $('.tab').eq(5).addClass('w3-deep-purple');
+    w3.hide('#home');
+    w3.hide('#experience');
+    w3.hide('#certification');
+    w3.hide('#projects');
+    w3.hide('#blog');
     w3.show('#contact');
 }
