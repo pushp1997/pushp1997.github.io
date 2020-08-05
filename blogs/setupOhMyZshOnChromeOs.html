@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pushp Vashisht</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Cache-control" content="public">
+	<link rel="stylesheet" type="text/css" href="../css/w3.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/w3-theme-deep-purple.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- Favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+	<link rel="manifest" href="../site.webmanifest">
+	<link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <a class="fa fa-home w3-xxxlarge" href="../index.html"></a>
+    <div class="w3-content">
+        <!-- <div class="w3-quarter w3-red"></div> -->
+        <div class="w3-container">
+            <h1 class="w3-center">How to setup & install oh my zsh on Chrome OS</h1>
+            <p class="w3-center">A guide to setup and install oh my zsh with agnoster theme and working fonts like a pro on Chrome OS.</p>
+            <img src="https://cdn-images-1.medium.com/max/900/1*ekuftzgsMFOvGxgASgcWSA.png" alt="Python" style="width:100%">
+            <br>
+            <h2>First Things first! Turn on Linux.</h2>
+            <p>At the time of writing this, Linux on Chromebooks is in beta. To turn it on, head over to Settings, under Linux (beta) click on Turn On. It will take some time to install Linux.</p>
+            <br>
+            <h2>Set sudo password</h2>
+            <p>By default Linux on Chrome OS doesn’t come with a password for sudo, we will set one up, as it is required to set zsh as the default shell.</p>
+            <div class="w3-codespan">
+                $ sudo su <br>
+                $ passwd pushp.vashisht <br>
+            </div>
+            <p>Remember to change pushp.vashisht with your username. You will be prompted for password, provide one.</p>
+            <h2>Install zsh and Oh my zsh</h2>
+            <div class="w3-codespan">
+                $ sudo apt install zsh <br>
+                $ chsh -s $(which zsh) <br>
+                $ sudo apt install wget git <br>
+                $ wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh <br>
+                $ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc <br>
+                $ source ~/.zshrc <br>
+                $ vi ~/.zshrc <br>
+            </div>
+            <p>Change the ‘ZSH_THEME’ line 10 with ‘agnoster’ theme as below:</p>
+            <div class="w3-codespan">
+                ZSH_THEME='agnoster' <br>
+            </div>
+            <p>Save & exit.</p>
+            <div class="w3-codespan">
+                $ source ~/.zshrc <br>
+            </div>
+            <p>Done! Oh my zsh is installed. Uh-Oh! the fonts aren’t getting displayed correctly as some of the symbols are missing. On any Linux distro installing powerline font via apt would have solved the problem, but, here it won’t.</p>
+            <h2>Configuring custom font</h2>
+            <p>Open a tab in chrome and hit `Ctrl + Alt + t`, a new tab with crosh will open up. Now, hit `Ctrl + Shift + p`, a new tab with Terminal settings will open up.</p>
+            <img src="https://cdn-images-1.medium.com/max/900/1*9JZphElq2eFnrnCvs5hBTw.png" alt="terminal settings example"  style="width:100%">
+            <ol class="ex1">
+                <li>Enter https://cdn.jsdelivr.net/gh/wernight/powerline-web-fonts@ba4426cb0c0b05eb6cb342c7719776a41e1f2114/PowerlineFonts.css in front of Custom CSS (URI)</li>
+                <li>Enter “Hack” before ”DejaVu Sans Mono” in front of Text Font Family like: “Hack”, ”DejaVu Sans Mono”</li>
+            </ol>
+            <p>Now, head back to your Linux terminal and you should see the fonts getting displayed properly.</p>
+            <h2>If the fonts are still not displayed correctly</h2>
+            <ol>
+                <li>Open your Linux terminal</li>
+                <li>Under text change font to ‘Source Code Pro, as shown below:</li>
+            </ol>
+            <img src="https://cdn-images-1.medium.com/max/900/1*nc9nJRVJ2u8cpcyQzYiCBw.png" alt="source code pro" style="width:100%">
+            <p>Now, the font should be working as expected!</p>
+            <h2>Bonus!</h2>
+            <p>Follow along with <a href="https://youtu.be/3CWUAisN-vo">this video</a> by Google Chrome Developers, for a guide to install Linux apps like vscode, docker, node.js, etc on your Chrome OS.</p>
+        </div>
+        <!-- <div class="w3-quarter w3-red"></div> -->
+    </div>
+
+  	<!-- Importing javascript files -->
+
+	<script src="js/jquery.js"></script>
+	<script src="js/w3.js"></script>
+	<script src="js/script.js"></script>
+	<!-- <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script> -->
+</body>
+</html>
