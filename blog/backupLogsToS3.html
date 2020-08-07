@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Use Python & Boto3 to Backup files/logs to AWS S3</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Python script, using Boto3, to backup files in a folder or server logs to AWS S3 in daily at a fixed time with the backup data in the file/log name.">
+	<meta http-equiv="Cache-control" content="public">
+	<link rel="stylesheet" type="text/css" href="../css/w3.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/w3-theme-deep-purple.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- Favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+	<link rel="manifest" href="../site.webmanifest">
+	<link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <a class="fa fa-home w3-xxxlarge" href="../index.html"></a>
+    <div class="w3-content">
+        <!-- <div class="w3-quarter w3-red"></div> -->
+        <div class="w3-container">
+            <h1 class="w3-center">Use Python & Boto3 to Backup files/logs to AWS S3</h1>
+            <p class="w3-center">Python script, using Boto3, to backup files in a folder or server logs to AWS S3 in daily at a fixed time with the backup data in the file/log name.</p>
+            <img src="https://cdn-images-1.medium.com/max/900/0*lbCLEJsv1ezhnFjW" alt="Python" style="width:100%">
+            <br>
+            <h2>Introduction</h2>
+            <p>Let’s say we have a folder on our server in which our logs are generated for various services that are running to make our application available to the users. Now, what if we want to backup those logs to AWS S3 bucket daily at 00:00 hour. Well, this guide is exactly to help us achieve the same! Let’s dive in!</p>
+            <br>
+            <h2>Getting the S3 bucket ready</h2>
+            <p>By default Linux on Chrome OS doesn’t come with a password for sudo, we will set one up, as it is required to set zsh as the default shell.</p>
+			<ul class="ex1">
+                <li>Create an S3 bucket from your AWS S3 Console.</li>
+				<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">Create an IAM user</a> and then and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege">make sure that the user has write privilege to the S3 bucket.</a></li>
+				<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey"></a> Create the access key under that IAM user.</li>
+				<li>Keep the bucket name, AWS access key id, and AWS access key handy, as they are required for further steps.</li>
+			</ul>
+			<br>
+			<h2>Let’s Write Some Code!</h2>
+			<h2>1. Create the project directory & python ‘venv’ environment</h2>
+			<div class="w3-codespan">
+				$ mkdir 'Backup Logs S3' <br>
+				$ cd 'Backup Logs S3' <br>
+				$ python3 -m venv env <br>
+				$ source env/bin/activate <br>
+			</div>
+			<h2>2. Create requirements.txt file</h2>
+			<div class="w3-codespan">
+				schedule==0.6.0 <br>
+				boto3==1.13.20 <br>
+			</div>
+			<h2>3. Install the requirements using pip</h2>
+			<div class="w3-codespan">
+				(env)$ pip install -r requirements.txt <br>
+			</div>
+			<h2>4. Create a function to upload a file to S3 bucket</h2>
+			<p>Use your favorite editor to create backup_logs_s3.py as follows:</p>
+			<script src="https://gist.github.com/pushp1997/0126000cad0fe705f2a1a9f0bd77ed1d.js"></script>
+			<p>The function accepts 4 parameters:</p>
+			<ul>
+				<li>file_name: Name of the file with the absolute path</li>
+				<li>bucket: Name of the bucket to which the file is to be uploaded</li>
+				<li>object_name: (Optional) To specify the name of the object when the file is uploaded to the bucket</li>
+				<li>folder_name: (Optional) Name of the folder under which the file will be uploaded, if the folder doesn’t exist already, a new folder will be created.</li>
+			</ul>
+			<p>In this function what we are doing is, first, we assign object_name with the name of the file after splitting the path from the file_name, if the object_name is given as a parameter.</p>
+			<p>Then, if folder_name is given, we assign the object_name to be ‘folder_name/object_name’.</p>
+			<p>In the try block, we create a client by calling the client method of boto3 package. Make sure to replace ‘YOUR_AWS_ACCESS_KEY_ID’ and ‘YOUR_AWS_SECRET_ACCESS_KEY’ with your actual keys which I asked you to keep handy earlier.</p>
+			<p>This client is then used to call the function upload_file to upload the file to our S3 bucket and the response returned by this function is printed.</p>
+			<h2>5. Create a function to append date to log files (Optional)</h2>
+			<p>This step is optional if you simply want to upload your files to S3, feel free to skip this step. Suppose, I have a log file named ‘server.log’ which gets appended by the requests that the server receives. So, if my server has been running for a week, then all requests of the whole week have been logged to the same file, this makes checking the logs for a particular day troublesome. To resolve this, each day at 00:00 when we backup the logs to S3 bucket, first, we will append the date of the previous day to the file name and then upload the file to S3, which will help us to browse through the logs date-wise.</p>
+			<script src="https://gist.github.com/pushp1997/94adf4208cc79f7ce613e47d76a4e596.js"></script>
+			<p>The function append_text_to_file_names() accepts 2 parameters:</p>
+			<ul>
+				<li>files: List of file names with their absolute path</li>
+				<li>text: String that is to be appended to the file names</li>
+			</ul>
+			<p>In this function, we rename, by appending the given text to the name of the files. After renaming the files we return the list of the files with the new names.</p>
+			<h2>6. Create a function that will use the above functions</h2>
+			<p>The motive of this function is to call the above functions in it, which will be used as a task for scheduling later on.</p>
+			<script src="https://gist.github.com/pushp1997/4c61809c182df5928843e89b382d90bf.js"></script>
+			<p>In the function rename_and_backup_logs_s3(), the previous day’s date is calculated and converted to ‘DD-MM-YYYY’ string format. log_files list is used to store all the files that we want to backup every day. We call the append_text_to_file_names() passing the list of files and previous day’s date in ‘DD-MM-YYYY’ format to append it to the name of the files. upload_file_to_s3() is called for each renamed file in the list, to upload it to the S3 bucket. Remember to replace YOUR_BUCKET_NAME with the actual name of the bucket that you assigned while creating the bucket.</p>
+			<h2>7. Final Step, Scheduling the task</h2>
+			<p>We create a schedule to run the task ‘rename_and_backup_logs_s3’ to run daily at ‘00:00’.</p>
+			<script src="https://gist.github.com/pushp1997/c3fdc350f64103779c3980aea0c93629.js"></script>
+			<h2>Run the script:</h2>
+			<div class="w3-codespan">
+				(env)$ python3 backup_logs_s3.py <br>
+			</div>
+			<p>In production environment, use supervisord to start up the script.</p>
+			<h2>Resources:</h2>
+			<ul>
+				<li>Create an S3 bucket: <a href="https://docs.aws.amazon.com/quickstarts/latest/s3backup/step-1-create-bucket.html">https://docs.aws.amazon.com/quickstarts/latest/s3backup/step-1-create-bucket.html</a></li>
+				<li>Create an IAM user: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html">https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html</a></li>
+				<li>User permission best practice: <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege">https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege</a></li>
+			</ul>
+
+  	<!-- Importing javascript files -->
+
+	<script src="js/jquery.js"></script>
+	<script src="js/w3.js"></script>
+	<script src="js/script.js"></script>
+	<!-- <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script> -->
+</body>
+</html>
