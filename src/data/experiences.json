@@ -1,0 +1,57 @@
+[
+  {
+    "title": "Module Lead I",
+    "company": "Adcuratio Media Inc",
+    "dates": "Apr 2021 - June 2022",
+    "location": "Bengaluru, India",
+    "responsibilities": [
+      "Led a team of 4 developers and provided mentorship to ensure that they had the necessary skills and support to succeed in their roles.",
+      "Took ownership of a product module and managed the development process to meet business requirements and deliver on time.",
+      "Designed and developed the in-app e-commerce module of Folksmedia, a content streaming and aggregation application.",
+      "Utilized a variety of technical skills, including Python, FastAPI, Docker, Redis, and MongoDB, to design and implement the architecture and backend of the module.",
+      "Actively gathered requirements and assigned tasks to team members to ensure that project goals were achieved efficiently."
+    ]
+  },
+  {
+    "title": "Software Developer",
+    "company": "Adcuratio Media Inc",
+    "dates": "Apr 2020 - March 2021",
+    "location": "Bengaluru, India",
+    "responsibilities": [
+      "Developed an Ad server from scratch that used demographic data to create instructions for targeted advertisements, which were then polled and parsed by televisions to replace existing advertisements in real-time. The application was deployed on a distributed Kubernetes architecture and served more than 3 million TVs daily in production.",
+      "Received the \"Best Performer Employee\" award for the quarter and was promoted to a higher rank within a short period of time due to my outstanding contributions.",
+      "Designed the application architecture and implemented it using Python, FastAPI, Rancher, EKS, Docker, Redis, and MongoDB.",
+      "Monitored the application cluster to ensure smooth operation and address any issues that arose."
+    ]
+  },
+  {
+    "title": "Systems Engineer",
+    "company": "Infosys Limited",
+    "dates": "Aug 2019 - Apr 2020",
+    "location": "Bengaluru, India",
+    "responsibilities": [
+      "Worked on the Infosys Migration Platform, both on the backend and frontend, to automate the extraction and migration of business rules from legacy applications to newer technologies.",
+      "Designed and developed new features for the platform, utilizing Nodejs and ANTLR.",
+      "Created a web user interface to facilitate interaction with the platform. ",
+      "Used agile software development methodologies to ensure efficient and effective project delivery. "
+    ]
+  },
+  {
+    "title": "Systems Engineer Trainee",
+    "company": "Infosys Limited",
+    "dates": "Jan 2019 - May 2019",
+    "location": "Mysuru, India",
+    "responsibilities": [
+      "Successfully completed the final semester project and internship training program at Infosys, at Mysore, in MERN stack."
+    ]
+  },
+  {
+    "title": "Software Developer Intern",
+    "company": "Creative Squad Pvt. Ltd.",
+    "dates": "May 2018 - July 2018",
+    "location": "Ghaziabad, India",
+    "responsibilities": [
+      "Developed Interactive Learning Games for play school kids, using Front-End Web Technologies, as an intern at Creative Squad Internet Services Pvt. Ltd. (contact@creativesquad.org )"
+    ]
+  }
+]
